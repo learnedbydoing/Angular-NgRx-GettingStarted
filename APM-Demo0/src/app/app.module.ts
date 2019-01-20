@@ -27,7 +27,7 @@ import {StoreModule} from '@ngrx/store';
     HttpClientInMemoryWebApiModule.forRoot(ProductData),
     UserModule,
     AppRoutingModule,
-    StoreModule.forRoot({})
+    StoreModule.forRoot({}) //we dont have reducer for our root app state, so we pass empty object
   ],
   declarations: [
     AppComponent,

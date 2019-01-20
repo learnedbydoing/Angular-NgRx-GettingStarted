@@ -8,6 +8,7 @@ import { ProductListComponent } from './product-list/product-list.component';
 import { ProductEditComponent } from './product-edit/product-edit.component';
 
 import {Store, StoreModule} from "@ngrx/store";
+import {reducer} from './state/products.reducer'
 
 const productRoutes: Routes = [
   { path: '', component: ProductShellComponent }
@@ -17,7 +18,7 @@ const productRoutes: Routes = [
   imports: [
     SharedModule,
     RouterModule.forChild(productRoutes),
-    StoreModule.forFeature(product, {}) // 1st arg: store slice, 2nd arg: reducer
+    StoreModule.forFeature('products', reducer) // 1st arg: store slice, 2nd arg: reducer
   ],
   declarations: [
     ProductShellComponent,
