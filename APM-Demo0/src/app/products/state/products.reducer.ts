@@ -1,3 +1,16 @@
+import {Product} from "../product";
+import * as fromRoot from '../../state/app.state'; // import State interface
+
+export interface State extends fromRoot.State { // extend w/ProductState and export this new State interface
+  products: ProductState;
+}
+
+export interface ProductState {
+  showProductCode: boolean;
+  currentProduct: Product;
+  products: Product[];
+}
+
 export function reducer(state, action) {
 
   switch (action.type) {
