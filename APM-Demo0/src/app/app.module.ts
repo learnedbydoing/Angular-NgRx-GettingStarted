@@ -20,14 +20,25 @@ import { UserModule } from './user/user.module';
 /* NgRx */
 import {StoreModule} from '@ngrx/store';
 
+//Redux Dev tools
+import {environment} from "../environments/environment";
+import {StoreDevtoolsModule} from "@ngrx/store-devtools";
+
 @NgModule({
   imports: [
     BrowserModule,
     HttpClientModule,
     HttpClientInMemoryWebApiModule.forRoot(ProductData),
+
     UserModule,
     AppRoutingModule,
-    StoreModule.forRoot({}) //we dont have reducer for our root app state, so we pass empty object
+
+    StoreModule.forRoot({}), //we dont have reducer for our root app state, so we pass empty object
+    StoreDevtoolsModule.instrument({
+      name: 'Angular NGRX Deborah Kurata',
+      maxAge: 25,
+      logOnly: environment.production
+    }),
   ],
   declarations: [
     AppComponent,
